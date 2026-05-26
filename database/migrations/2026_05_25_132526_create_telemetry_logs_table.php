@@ -9,13 +9,16 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('telemetry_logs', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+  public function up()
+{
+    Schema::create('telemetry_logs', function (Blueprint $table) {
+        $table->id();
+        $table->float('temperature')->nullable();
+        $table->float('humidity')->nullable();
+        $table->integer('light_level')->nullable();
+        $table->timestamps();
+    });
+}
 
     /**
      * Reverse the migrations.

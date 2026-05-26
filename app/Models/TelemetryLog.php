@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class TelemetryLog extends Model
 {
-    //
+    protected $fillable = [
+        'sensor_type',
+        'reading_value',
+    ];
 }

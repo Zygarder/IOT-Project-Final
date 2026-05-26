@@ -9,13 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('actuator_states', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+   public function up()
+{
+    Schema::create('actuator_states', function (Blueprint $table) {
+        $table->id();
+        $table->string('actuator_identity')->unique(); // 'led' or 'buzzer'
+        $table->boolean('operating_state')->default(false); // true for ON, false for OFF
+        $table->timestamps();
+    });
+}
 
     /**
      * Reverse the migrations.
